@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Game Tracker Kawaii</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffd6e8, #cce7ff); /* rosa pastel a celeste */
+            color: #333;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff4da6;
+            font-size: 3em;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ff99cc;
+        }
+
+        th {
+            background-color: #ffb6d9;
+            color: white;
+        }
+
+        td {
+            background-color: #e0f0ff;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            width: 150px;
+        }
+
+        button {
+            background-color: #ff66b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3399;
+        }
+
+        /* Opcional: emojis decorativos */
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>🎀 Mi Game Tracker Kawaii 🎀</h1>
+
+    <div>
+        <input type="text" id="juego" placeholder="Nombre del juego">
+        <input type="number" id="partidas" placeholder="Partidas jugadas">
+        <input type="number" id="victorias" placeholder="Victorias">
+        <button onclick="agregarFila()">➕ Añadir partida</button>
+    </div>
+
+    <table id="tabla">
+        <tr>
+            <th>🎮 Juego</th>
+            <th>🕹️ Partidas jugadas</th>
+            <th>🏆 Victorias</th>
+        </tr>
+    </table>
+
+    <script>
+        function agregarFila() {
+            const juego = document.getElementById('juego').value;
+            const partidas = document.getElementById('partidas').value;
+            const victorias = document.getElementById('victorias').value;
+
+            if(juego && partidas && victorias) {
+                const tabla = document.getElementById('tabla');
+                const fila = tabla.insertRow();
+                const celda1 = fila.insertCell(0);
+                const celda2 = fila.insertCell(1);
+                const celda3 = fila.insertCell(2);
+
+                celda1.innerText = juego;
+                celda2.innerText = partidas;
+                celda3.innerText = victorias;
+
+                // Limpiar inputs
+                document.getElementById('juego').value = '';
+                document.getElementById('partidas').value = '';
+                document.getElementById('victorias').value = '';
+            } else {
+                alert('Por favor, completa todos los campos 🥰');
+            }
+        }
+    </script>
+</body>
+</html>
